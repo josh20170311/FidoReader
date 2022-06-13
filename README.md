@@ -1,3 +1,5 @@
+visual studio 2022
+C# .net 6.0
 需要使用系統權限開啟
 
 功能
