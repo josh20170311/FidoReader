@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FidoReader", "FidoReader\FidoReader.csproj", "{D0FCA65A-2118-4E48-B02F-256C63787A80}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simulation", "..\Simulation\Simulation\Simulation.csproj", "{F0BFE936-19D9-4C7D-B36B-3F7AA8A297B4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D0FCA65A-2118-4E48-B02F-256C63787A80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0FCA65A-2118-4E48-B02F-256C63787A80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0FCA65A-2118-4E48-B02F-256C63787A80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0FCA65A-2118-4E48-B02F-256C63787A80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0BFE936-19D9-4C7D-B36B-3F7AA8A297B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0BFE936-19D9-4C7D-B36B-3F7AA8A297B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0BFE936-19D9-4C7D-B36B-3F7AA8A297B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0BFE936-19D9-4C7D-B36B-3F7AA8A297B4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {59A8A0BC-D6F3-4960-924A-B1D82BB37584}
+	EndGlobalSection
+EndGlobal

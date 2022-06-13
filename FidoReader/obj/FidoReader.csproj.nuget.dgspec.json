@@ -1,0 +1,160 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\josh2\\Documents\\TWISC\\forward privacy\\FidoReader\\FidoReader\\FidoReader.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\josh2\\Documents\\TWISC\\forward privacy\\FidoReader\\FidoReader\\FidoReader.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\josh2\\Documents\\TWISC\\forward privacy\\FidoReader\\FidoReader\\FidoReader.csproj",
+        "projectName": "FidoReader",
+        "projectPath": "C:\\Users\\josh2\\Documents\\TWISC\\forward privacy\\FidoReader\\FidoReader\\FidoReader.csproj",
+        "packagesPath": "C:\\Users\\josh2\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\josh2\\Documents\\TWISC\\forward privacy\\FidoReader\\FidoReader\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\josh2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0-windows7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0-windows7.0": {
+            "targetAlias": "net6.0-windows",
+            "projectReferences": {
+              "C:\\Users\\josh2\\Documents\\TWISC\\forward privacy\\Simulation\\Simulation\\Simulation.csproj": {
+                "projectPath": "C:\\Users\\josh2\\Documents\\TWISC\\forward privacy\\Simulation\\Simulation\\Simulation.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0-windows7.0": {
+          "targetAlias": "net6.0-windows",
+          "dependencies": {
+            "Dahomey.Cbor": {
+              "target": "Package",
+              "version": "[1.17.0, )"
+            },
+            "Jsbeautifier": {
+              "target": "Package",
+              "version": "[0.0.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "PCSC": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "PCSC.Iso7816": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "PCSC.Reactive": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "System.Data.SQLite": {
+              "target": "Package",
+              "version": "[1.0.115.5, )"
+            },
+            "System.Formats.Cbor": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WindowsForms": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\josh2\\Documents\\TWISC\\forward privacy\\Simulation\\Simulation\\Simulation.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\josh2\\Documents\\TWISC\\forward privacy\\Simulation\\Simulation\\Simulation.csproj",
+        "projectName": "Simulation",
+        "projectPath": "C:\\Users\\josh2\\Documents\\TWISC\\forward privacy\\Simulation\\Simulation\\Simulation.csproj",
+        "packagesPath": "C:\\Users\\josh2\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\josh2\\Documents\\TWISC\\forward privacy\\Simulation\\Simulation\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\josh2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0-windows7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0-windows7.0": {
+            "targetAlias": "net6.0-windows",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0-windows7.0": {
+          "targetAlias": "net6.0-windows",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WindowsForms": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

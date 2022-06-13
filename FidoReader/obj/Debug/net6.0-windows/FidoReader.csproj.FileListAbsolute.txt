@@ -1,0 +1,87 @@
+C:\Users\josh2\source\repos\FidoReader\FidoReader\bin\Debug\net6.0-windows\FidoReader.exe
+C:\Users\josh2\source\repos\FidoReader\FidoReader\bin\Debug\net6.0-windows\FidoReader.deps.json
+C:\Users\josh2\source\repos\FidoReader\FidoReader\bin\Debug\net6.0-windows\FidoReader.runtimeconfig.json
+C:\Users\josh2\source\repos\FidoReader\FidoReader\bin\Debug\net6.0-windows\FidoReader.dll
+C:\Users\josh2\source\repos\FidoReader\FidoReader\bin\Debug\net6.0-windows\FidoReader.pdb
+C:\Users\josh2\source\repos\FidoReader\FidoReader\bin\Debug\net6.0-windows\PCSC.dll
+C:\Users\josh2\source\repos\FidoReader\FidoReader\bin\Debug\net6.0-windows\PCSC.Iso7816.dll
+C:\Users\josh2\source\repos\FidoReader\FidoReader\bin\Debug\net6.0-windows\PCSC.Reactive.dll
+C:\Users\josh2\source\repos\FidoReader\FidoReader\bin\Debug\net6.0-windows\System.Reactive.dll
+C:\Users\josh2\source\repos\FidoReader\FidoReader\obj\Debug\net6.0-windows\FidoReader.csproj.AssemblyReference.cache
+C:\Users\josh2\source\repos\FidoReader\FidoReader\obj\Debug\net6.0-windows\FidoReader.Form1.resources
+C:\Users\josh2\source\repos\FidoReader\FidoReader\obj\Debug\net6.0-windows\FidoReader.csproj.GenerateResource.cache
+C:\Users\josh2\source\repos\FidoReader\FidoReader\obj\Debug\net6.0-windows\FidoReader.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\josh2\source\repos\FidoReader\FidoReader\obj\Debug\net6.0-windows\FidoReader.AssemblyInfoInputs.cache
+C:\Users\josh2\source\repos\FidoReader\FidoReader\obj\Debug\net6.0-windows\FidoReader.AssemblyInfo.cs
+C:\Users\josh2\source\repos\FidoReader\FidoReader\obj\Debug\net6.0-windows\FidoReader.csproj.CoreCompileInputs.cache
+C:\Users\josh2\source\repos\FidoReader\FidoReader\obj\Debug\net6.0-windows\FidoReader.csproj.CopyComplete
+C:\Users\josh2\source\repos\FidoReader\FidoReader\obj\Debug\net6.0-windows\FidoReader.dll
+C:\Users\josh2\source\repos\FidoReader\FidoReader\obj\Debug\net6.0-windows\refint\FidoReader.dll
+C:\Users\josh2\source\repos\FidoReader\FidoReader\obj\Debug\net6.0-windows\FidoReader.pdb
+C:\Users\josh2\source\repos\FidoReader\FidoReader\obj\Debug\net6.0-windows\FidoReader.genruntimeconfig.cache
+C:\Users\josh2\source\repos\FidoReader\FidoReader\obj\Debug\net6.0-windows\ref\FidoReader.dll
+C:\Users\josh2\source\repos\FidoReader\FidoReader\bin\Debug\net6.0-windows\System.Formats.Cbor.dll
+C:\Users\josh2\source\repos\FidoReader\FidoReader\bin\Debug\net6.0-windows\Dahomey.Cbor.dll
+C:\Users\josh2\source\repos\FidoReader\FidoReader\bin\Debug\net6.0-windows\System.IO.Pipelines.dll
+C:\Users\josh2\source\repos\FidoReader\FidoReader\bin\Debug\net6.0-windows\Jsbeautifier.dll
+C:\Users\josh2\source\repos\FidoReader\FidoReader\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+C:\Users\josh2\source\repos\FidoReader\FidoReader\bin\Debug\net6.0-windows\EntityFramework.SqlServer.dll
+C:\Users\josh2\source\repos\FidoReader\FidoReader\bin\Debug\net6.0-windows\EntityFramework.dll
+C:\Users\josh2\source\repos\FidoReader\FidoReader\bin\Debug\net6.0-windows\System.Data.SQLite.dll
+C:\Users\josh2\source\repos\FidoReader\FidoReader\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+C:\Users\josh2\source\repos\FidoReader\FidoReader\bin\Debug\net6.0-windows\System.Data.SQLite.EF6.dll
+C:\Users\josh2\source\repos\FidoReader\FidoReader\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\josh2\source\repos\FidoReader\FidoReader\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\josh2\source\repos\FidoReader\FidoReader\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\josh2\source\repos\FidoReader\FidoReader\bin\Debug\net6.0-windows\runtimes\linux-x64\native\SQLite.Interop.dll
+C:\Users\josh2\source\repos\FidoReader\FidoReader\bin\Debug\net6.0-windows\runtimes\osx-x64\native\SQLite.Interop.dll
+C:\Users\josh2\source\repos\FidoReader\FidoReader\bin\Debug\net6.0-windows\runtimes\win-x64\native\SQLite.Interop.dll
+C:\Users\josh2\source\repos\FidoReader\FidoReader\bin\Debug\net6.0-windows\runtimes\win-x86\native\SQLite.Interop.dll
+C:\Users\josh2\source\repos\FidoReader\FidoReader\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\josh2\source\repos\FidoReader\FidoReader\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\Simulation.deps.json
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\Simulation.runtimeconfig.json
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\Simulation.exe
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\FidoReader.exe
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\FidoReader.deps.json
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\FidoReader.runtimeconfig.json
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\FidoReader.dll
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\FidoReader.pdb
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\Dahomey.Cbor.dll
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\EntityFramework.SqlServer.dll
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\EntityFramework.dll
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\Jsbeautifier.dll
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\PCSC.dll
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\PCSC.Iso7816.dll
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\PCSC.Reactive.dll
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\System.Data.SQLite.dll
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\System.Data.SQLite.EF6.dll
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\System.Formats.Cbor.dll
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\System.IO.Pipelines.dll
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\System.Reactive.dll
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\runtimes\linux-x64\native\SQLite.Interop.dll
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\runtimes\osx-x64\native\SQLite.Interop.dll
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\runtimes\win-x64\native\SQLite.Interop.dll
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\runtimes\win-x86\native\SQLite.Interop.dll
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\Simulation.dll
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\Simulation.pdb
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\obj\Debug\net6.0-windows\FidoReader.csproj.AssemblyReference.cache
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\obj\Debug\net6.0-windows\FidoReader.Form1.resources
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\obj\Debug\net6.0-windows\FidoReader.csproj.GenerateResource.cache
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\obj\Debug\net6.0-windows\FidoReader.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\obj\Debug\net6.0-windows\FidoReader.AssemblyInfoInputs.cache
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\obj\Debug\net6.0-windows\FidoReader.AssemblyInfo.cs
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\obj\Debug\net6.0-windows\FidoReader.csproj.CoreCompileInputs.cache
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\obj\Debug\net6.0-windows\FidoReader.csproj.CopyComplete
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\obj\Debug\net6.0-windows\FidoReader.dll
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\obj\Debug\net6.0-windows\refint\FidoReader.dll
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\obj\Debug\net6.0-windows\FidoReader.pdb
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\obj\Debug\net6.0-windows\FidoReader.genruntimeconfig.cache
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\obj\Debug\net6.0-windows\ref\FidoReader.dll
