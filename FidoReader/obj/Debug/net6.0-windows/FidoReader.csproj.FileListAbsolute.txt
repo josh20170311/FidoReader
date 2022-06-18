@@ -85,3 +85,11 @@ C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\obj\Debug\n
 C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\obj\Debug\net6.0-windows\FidoReader.pdb
 C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\obj\Debug\net6.0-windows\FidoReader.genruntimeconfig.cache
 C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\obj\Debug\net6.0-windows\ref\FidoReader.dll
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\Google.Protobuf.dll
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\K4os.Compression.LZ4.dll
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\K4os.Compression.LZ4.Streams.dll
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\K4os.Hash.xxHash.dll
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\MySql.Data.dll
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\Ubiety.Dns.Core.dll
+C:\Users\josh2\Documents\TWISC\forward privacy\FidoReader\FidoReader\bin\Debug\net6.0-windows\ZstdNet.dll

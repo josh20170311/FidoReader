@@ -7,6 +7,9 @@ using Jsbeautifier;
 using Simulation;
 using System.Security.Cryptography;
 using System.Formats.Cbor;
+using MySql.Data.MySqlClient;
+using System.Data;
+using System.Text;
 
 namespace FidoReader
 {
@@ -155,9 +158,25 @@ namespace FidoReader
 
 
 		private void getPuKxCx_Click(object sender, EventArgs e) {
+			if (IDxBox.Text == "") {
+				MessageBox.Show("IDx not set");
+				return;
+			}
+			string connectString = "server=127.0.0.1;port=3306;user id=IDP;password=idppasswd;database=idp;charset=utf8;";
+			MySqlConnection mySqlConnection = new MySqlConnection(connectString);
+			if (mySqlConnection.State != ConnectionState.Open) {
+                try {
+					mySqlConnection.Open();
+                } catch (Exception ex) {
+					MessageBox.Show(ex.Message);
+					Debug.WriteLine(ex.Message);
+					return;
+                }
+			}
+
 			selectFIDOApplet_Click(sender, e);
 
-			string IDx = "PRLab";
+			string IDx = IDxBox.Text;
 
 			ECDiffieHellmanCng ECDH = new ECDiffieHellmanCng();
 			ECDH.HashAlgorithm = CngAlgorithm.Sha1;
@@ -170,7 +189,6 @@ namespace FidoReader
 			
 			Debug.WriteLine(BitConverter.ToString(publicKey));
 			Debug.WriteLine(BitConverter.ToString(privateKey));
-			Debug.WriteLine(BitConverter.ToString(ECDH.ExportPkcs8PrivateKey()));
 
 			CborWriter cborWriter = new CborWriter();
 			cborWriter.WriteStartArray(2);
@@ -198,6 +216,7 @@ namespace FidoReader
 			}
 			CborReader cborReader = new CborReader(data);
 			cborReader.ReadStartArray();
+			// magic||length(in little endian)
 			byte[] keyHeader = new byte[]{ 0x45,0x43,0x4B,0x31,0x20,0x00,0x00,0x00};
 			byte[] temp = cborReader.ReadByteString();
 			byte[] PuKx = new byte[keyHeader.Length + temp.Length-1];
@@ -211,26 +230,61 @@ namespace FidoReader
 			byte[] eccFullpublicblob = cngKey.Export(CngKeyBlobFormat.EccPublicBlob);
 
 			paramBox.Text += "PuKx : " + BitConverter.ToString(eccFullpublicblob) + "\r\n";
+			// generate sharedSecrect
 			byte[] sharedSecrect = ECDH.DeriveKeyMaterial(cngKey);
 			paramBox.Text += "SharedSecret : " + BitConverter.ToString(sharedSecrect) + "\r\n";
 
+			// generate hashedSharedsecrect
 			SHA256 sha256 = SHA256.Create();
 			byte[] hashedSharedSecrect = sha256.ComputeHash(sharedSecrect);
 			paramBox.Text += "sha256 SharedSecret : " + BitConverter.ToString(hashedSharedSecrect) + "\r\n";
 			
+			// make AES cipher
 			byte[] IV = new byte[16];
 			Array.Fill(IV, (byte)0);
 			AesCng aes = new AesCng();
 			aes.KeySize = 256;
+			aes.Key = hashedSharedSecrect;
 			aes.BlockSize = 128;
 			aes.Mode = CipherMode.CBC;
 			aes.Padding = PaddingMode.None;
 			aes.IV = IV;
-			aes.Key = hashedSharedSecrect;
 
+			// decrypt cx
 			byte[] decryptedCx = aes.DecryptCbc(encryptedCx, IV, PaddingMode.None);
 			paramBox.Text += "Encrypted Cx : " + BitConverter.ToString(encryptedCx) + "\r\n";
 			paramBox.Text += "Decrypted Cx : " + BitConverter.ToString(decryptedCx) + "\r\n";
+
+			// generate HMAC <- AES(hashedSharedSecrect, sha256(IDx||Cx))
+			byte[] IDxAndCx = new byte[IDx.Length + decryptedCx.Length];
+			Array.Copy(Encoding.ASCII.GetBytes(IDx), 0, IDxAndCx, 0, IDx.Length);
+			Array.Copy(decryptedCx, 0, IDxAndCx, IDx.Length, decryptedCx.Length);
+			Debug.WriteLine(BitConverter.ToString(IDxAndCx));
+			byte[] hashedIDxAndCx = sha256.ComputeHash(IDxAndCx);
+			paramBox.Text += "hashedIDxAndCx : " + BitConverter.ToString(hashedIDxAndCx) + "\r\n";
+			byte[] hmac = aes.EncryptCbc(hashedIDxAndCx, IV, PaddingMode.None);
+			paramBox.Text += "hmac : " + BitConverter.ToString(hmac) + "\r\n";
+
+			try {
+				MySqlCommand insertNewIdentity = new MySqlCommand();
+				insertNewIdentity.Connection = mySqlConnection;
+				insertNewIdentity.CommandText = "INSERT INTO identities VALUES(default, @idx, @hmac, @cx, @hashedSharedSecrect,  @pukx, @pukp, @prkp )";
+				insertNewIdentity.CommandType = CommandType.Text;
+				insertNewIdentity.Parameters.Add("@idx", MySqlDbType.VarChar).Value = IDxBox.Text;
+				insertNewIdentity.Parameters.Add("@hmac", MySqlDbType.VarBinary).Value = hmac;
+				insertNewIdentity.Parameters.Add("@cx", MySqlDbType.VarBinary).Value = decryptedCx;
+				insertNewIdentity.Parameters.Add("@hashedSharedSecrect", MySqlDbType.VarBinary).Value = hashedSharedSecrect;
+				insertNewIdentity.Parameters.Add("@pukx", MySqlDbType.VarBinary).Value = PuKx;
+				insertNewIdentity.Parameters.Add("@pukp", MySqlDbType.VarBinary).Value = publicKey;
+				insertNewIdentity.Parameters.Add("@prkp", MySqlDbType.VarBinary).Value = privateKey;
+				int rowAffected = insertNewIdentity.ExecuteNonQuery();
+				MessageBox.Show("row affected : "+rowAffected);
+			} catch (Exception ex) {
+				Debug.WriteLine(ex.ToString());
+			} finally {
+				if (mySqlConnection.State != ConnectionState.Closed)
+					mySqlConnection.Close();
+			}
 		}
 
         protected override void OnFormClosing(FormClosingEventArgs e) {
@@ -239,5 +293,36 @@ namespace FidoReader
 			pcscContext.Dispose();
 			pcscReader.Dispose();
         }
+
+        private void getFreeSpace_Click(object sender, EventArgs e) {
+			var getFreeSpaceCommand = new CommandApdu(IsoCase.Case2Short, pcscReader.ActiveProtocol) {
+				CLA = 0x80,
+				INS = 0xCA,
+				P1P2 = 0xFF21
+			};
+			executecCommand(getFreeSpaceCommand);
+		}
+
+        private void getCredentialCount_Click(object sender, EventArgs e) {
+			selectFIDOApplet_Click(sender, e);
+			var command = new CommandApdu(IsoCase.Case4Short, pcscReader.ActiveProtocol) {
+				CLA = 0x80,
+				INS = 0x10,
+				P1P2 = 0x0000,
+				Data = new byte[] {0x45}
+			};
+			executecCommand(command);
+		}
+
+        private void resetCredentials_Click(object sender, EventArgs e) {
+			selectFIDOApplet_Click(sender, e);
+			var command = new CommandApdu(IsoCase.Case4Short, pcscReader.ActiveProtocol) {
+				CLA = 0x80,
+				INS = 0x10,
+				P1P2 = 0x0000,
+				Data = new byte[] { 0x07 }
+			};
+			executecCommand(command);
+		}
     }
 }

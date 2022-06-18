@@ -11,6 +11,7 @@
   <ItemGroup>
     <PackageReference Include="Dahomey.Cbor" Version="1.17.0" />
     <PackageReference Include="Jsbeautifier" Version="0.0.1" />
+    <PackageReference Include="MySql.Data" Version="8.0.29" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="PCSC" Version="6.0.0" />
     <PackageReference Include="PCSC.Iso7816" Version="6.0.0" />

@@ -43,6 +43,10 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.paramBox = new System.Windows.Forms.TextBox();
+            this.resetCredentials = new System.Windows.Forms.Button();
+            this.getCredentialCount = new System.Windows.Forms.Button();
+            this.getFreeSpace = new System.Windows.Forms.Button();
+            this.IDxBox = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -110,7 +114,7 @@
             // 
             // getPuKxRx
             // 
-            this.getPuKxRx.Location = new System.Drawing.Point(832, 203);
+            this.getPuKxRx.Location = new System.Drawing.Point(832, 290);
             this.getPuKxRx.Name = "getPuKxRx";
             this.getPuKxRx.Size = new System.Drawing.Size(119, 23);
             this.getPuKxRx.TabIndex = 7;
@@ -130,7 +134,7 @@
             // 
             // dumpIDSecret
             // 
-            this.dumpIDSecret.Location = new System.Drawing.Point(832, 174);
+            this.dumpIDSecret.Location = new System.Drawing.Point(832, 261);
             this.dumpIDSecret.Name = "dumpIDSecret";
             this.dumpIDSecret.Size = new System.Drawing.Size(119, 23);
             this.dumpIDSecret.TabIndex = 9;
@@ -140,7 +144,7 @@
             // 
             // getCx
             // 
-            this.getCx.Location = new System.Drawing.Point(832, 232);
+            this.getCx.Location = new System.Drawing.Point(832, 319);
             this.getCx.Name = "getCx";
             this.getCx.Size = new System.Drawing.Size(119, 23);
             this.getCx.TabIndex = 10;
@@ -150,7 +154,7 @@
             // 
             // getPuKxCx
             // 
-            this.getPuKxCx.Location = new System.Drawing.Point(832, 261);
+            this.getPuKxCx.Location = new System.Drawing.Point(832, 377);
             this.getPuKxCx.Name = "getPuKxCx";
             this.getPuKxCx.Size = new System.Drawing.Size(119, 23);
             this.getPuKxCx.TabIndex = 11;
@@ -201,11 +205,53 @@
             this.paramBox.TabIndex = 3;
             this.paramBox.WordWrap = false;
             // 
+            // resetCredentials
+            // 
+            this.resetCredentials.Location = new System.Drawing.Point(832, 232);
+            this.resetCredentials.Name = "resetCredentials";
+            this.resetCredentials.Size = new System.Drawing.Size(119, 23);
+            this.resetCredentials.TabIndex = 13;
+            this.resetCredentials.Text = "resetCredentials";
+            this.resetCredentials.UseVisualStyleBackColor = true;
+            this.resetCredentials.Click += new System.EventHandler(this.resetCredentials_Click);
+            // 
+            // getCredentialCount
+            // 
+            this.getCredentialCount.Location = new System.Drawing.Point(832, 203);
+            this.getCredentialCount.Name = "getCredentialCount";
+            this.getCredentialCount.Size = new System.Drawing.Size(134, 23);
+            this.getCredentialCount.TabIndex = 14;
+            this.getCredentialCount.Text = "getCredentialCount";
+            this.getCredentialCount.UseVisualStyleBackColor = true;
+            this.getCredentialCount.Click += new System.EventHandler(this.getCredentialCount_Click);
+            // 
+            // getFreeSpace
+            // 
+            this.getFreeSpace.Location = new System.Drawing.Point(832, 174);
+            this.getFreeSpace.Name = "getFreeSpace";
+            this.getFreeSpace.Size = new System.Drawing.Size(119, 23);
+            this.getFreeSpace.TabIndex = 15;
+            this.getFreeSpace.Text = "getFreeSpace";
+            this.getFreeSpace.UseVisualStyleBackColor = true;
+            this.getFreeSpace.Click += new System.EventHandler(this.getFreeSpace_Click);
+            // 
+            // IDxBox
+            // 
+            this.IDxBox.Location = new System.Drawing.Point(832, 348);
+            this.IDxBox.Name = "IDxBox";
+            this.IDxBox.PlaceholderText = "IDx";
+            this.IDxBox.Size = new System.Drawing.Size(119, 23);
+            this.IDxBox.TabIndex = 16;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.IDxBox);
+            this.Controls.Add(this.getFreeSpace);
+            this.Controls.Add(this.getCredentialCount);
+            this.Controls.Add(this.resetCredentials);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.getPuKxCx);
             this.Controls.Add(this.getCx);
@@ -246,5 +292,9 @@
         private TabPage tabPage1;
         private TabPage tabPage2;
         private TextBox paramBox;
+        private Button resetCredentials;
+        private Button getCredentialCount;
+        private Button getFreeSpace;
+        private TextBox IDxBox;
     }
 }
