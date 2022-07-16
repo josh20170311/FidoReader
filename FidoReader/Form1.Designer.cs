@@ -47,6 +47,10 @@
             this.getCredentialCount = new System.Windows.Forms.Button();
             this.getFreeSpace = new System.Windows.Forms.Button();
             this.IDxBox = new System.Windows.Forms.TextBox();
+            this.ClientPIN_getRetries = new System.Windows.Forms.Button();
+            this.ClientPIN_getKeyAgreement = new System.Windows.Forms.Button();
+            this.pinBox = new System.Windows.Forms.TextBox();
+            this.SetPIN = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -243,11 +247,53 @@
             this.IDxBox.Size = new System.Drawing.Size(119, 23);
             this.IDxBox.TabIndex = 16;
             // 
+            // ClientPIN_getRetries
+            // 
+            this.ClientPIN_getRetries.Location = new System.Drawing.Point(1004, 58);
+            this.ClientPIN_getRetries.Name = "ClientPIN_getRetries";
+            this.ClientPIN_getRetries.Size = new System.Drawing.Size(181, 23);
+            this.ClientPIN_getRetries.TabIndex = 17;
+            this.ClientPIN_getRetries.Text = "ClientPIN_getRetries";
+            this.ClientPIN_getRetries.UseVisualStyleBackColor = true;
+            this.ClientPIN_getRetries.Click += new System.EventHandler(this.ClientPIN_getRetries_Click);
+            // 
+            // ClientPIN_getKeyAgreement
+            // 
+            this.ClientPIN_getKeyAgreement.Location = new System.Drawing.Point(1004, 87);
+            this.ClientPIN_getKeyAgreement.Name = "ClientPIN_getKeyAgreement";
+            this.ClientPIN_getKeyAgreement.Size = new System.Drawing.Size(181, 23);
+            this.ClientPIN_getKeyAgreement.TabIndex = 18;
+            this.ClientPIN_getKeyAgreement.Text = "ClientPIN_getKeyAgreement";
+            this.ClientPIN_getKeyAgreement.UseVisualStyleBackColor = true;
+            this.ClientPIN_getKeyAgreement.Click += new System.EventHandler(this.ClientPIN_getKeyAgreement_Click);
+            // 
+            // pinBox
+            // 
+            this.pinBox.Location = new System.Drawing.Point(1004, 116);
+            this.pinBox.Name = "pinBox";
+            this.pinBox.PlaceholderText = "PIN";
+            this.pinBox.Size = new System.Drawing.Size(119, 23);
+            this.pinBox.TabIndex = 19;
+            // 
+            // SetPIN
+            // 
+            this.SetPIN.Location = new System.Drawing.Point(1004, 145);
+            this.SetPIN.Name = "SetPIN";
+            this.SetPIN.Size = new System.Drawing.Size(181, 23);
+            this.SetPIN.TabIndex = 20;
+            this.SetPIN.Text = "ClientPIN_SetPIN";
+            this.SetPIN.UseVisualStyleBackColor = true;
+            this.SetPIN.Click += new System.EventHandler(this.SetPIN_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.ClientSize = new System.Drawing.Size(1211, 729);
+            this.Controls.Add(this.SetPIN);
+            this.Controls.Add(this.pinBox);
+            this.Controls.Add(this.ClientPIN_getKeyAgreement);
+            this.Controls.Add(this.ClientPIN_getRetries);
             this.Controls.Add(this.IDxBox);
             this.Controls.Add(this.getFreeSpace);
             this.Controls.Add(this.getCredentialCount);
@@ -296,5 +342,9 @@
         private Button getCredentialCount;
         private Button getFreeSpace;
         private TextBox IDxBox;
+        private Button ClientPIN_getRetries;
+        private Button ClientPIN_getKeyAgreement;
+        private TextBox pinBox;
+        private Button SetPIN;
     }
 }
