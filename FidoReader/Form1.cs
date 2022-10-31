@@ -25,18 +25,56 @@ namespace FidoReader
 	public partial class Form1 : Form
 	{
 		Beautifier beautifier = new Beautifier();
-		ISCardContext pcscContext;
 		IsoReader pcscReader;
+		PCSC.Monitoring.ISCardMonitor monitor = PCSC.Monitoring.MonitorFactory.Instance.Create(SCardScope.User);
 		string[] readers;
+		string readerName;
 		byte[] Cx;
 
 		public Form1()
 		{
 			InitializeComponent();
-            pcscContext = ContextFactory.Instance.Establish(SCardScope.User);
-            readers = pcscContext.GetReaders();
-            pcscReader = new IsoReader(context: pcscContext, readerName: readers[0], mode: SCardShareMode.Shared, protocol: SCardProtocol.Any);
-            dumpReaders(readers);
+			getReaderName();
+            monitor.CardInserted += Monitor_CardInserted;
+            monitor.CardRemoved += Monitor_CardRemoved;
+			monitor.Start(readerName);
+        }
+
+        private void Monitor_CardRemoved(object sender, PCSC.Monitoring.CardStatusEventArgs e) {
+			Debug.WriteLine("Card Removed !!");
+		}
+
+        private void Monitor_CardInserted(object sender, PCSC.Monitoring.CardStatusEventArgs e) {
+			Debug.WriteLine("Card Inserted !!");
+		}
+
+        private void getReaderName() {
+			Debug.WriteLine("Connect card reader ...");
+            var pcscContext = ContextFactory.Instance.Establish(SCardScope.User);
+			//pcscReader = null;
+            readerName = pcscContext.GetReaders().FirstOrDefault();
+			if (readerName != null && readerName.Equals("Generic EMV Smartcard Reader  0")) {
+				readerName = "NXP PR533 0";
+			}
+			
+            //dumpReaders(readers);
+			//foreach (string reader in readers) {
+   //             try {
+			//		pcscReader = new IsoReader(context: pcscContext, readerName: reader, mode: SCardShareMode.Shared, protocol: SCardProtocol.Any);
+			//		if (pcscReader != null)
+			//			break;
+   //             } catch (Exception) {
+			//		continue;
+   //             }
+			//}
+			if (readerName == null) {
+				Debug.WriteLine("pcsc Reader is null !!!");
+				MessageBox.Show("pcsc Reader is null !!!");
+			} else {
+				Debug.WriteLine(" Card reader connected.");
+				Debug.WriteLine("Reader name : " + readerName);
+				Debug.WriteLine("Reader status : " + pcscContext.GetReaderStatus(readerName).EventState);
+			}
         }
 
 		private void dumpReaders(string[] readers) {
@@ -56,28 +94,32 @@ namespace FidoReader
 			Debug.WriteLine(commandStirng);
 			APDUbox.Text += ">> " + commandStirng + "\r\n";
 
-			Response commandResponse = pcscReader.Transmit(commandApdu);
-			string statusWord = commandResponse.StatusWord.ToString("X");
-			APDUbox.Text += "<< " + statusWord + "\r\n";
-			Debug.WriteLine(statusWord);
+			using (var pcscContext = ContextFactory.Instance.Establish(SCardScope.User))
+			using (var pcscReader = new IsoReader(pcscContext, readerName, SCardShareMode.Shared, SCardProtocol.Any)) {
+				Response commandResponse = pcscReader.Transmit(commandApdu);
+				string statusWord = commandResponse.StatusWord.ToString("X");
+				APDUbox.Text += "<< " + statusWord + "\r\n";
+				Debug.WriteLine(statusWord);
 
-            try {
-				byte[] data = commandResponse.GetData();
-				string dataHexString = BitConverter.ToString(data);
-				APDUbox.Text += "<< " + dataHexString + "\r\n";
-				Debug.WriteLine(dataHexString);
+				// print Data
+				try {
+					byte[] data = commandResponse.GetData();
+					string dataHexString = BitConverter.ToString(data);
+					APDUbox.Text += "<< " + dataHexString + "\r\n";
+					Debug.WriteLine(dataHexString);
 
-				if (data[0] == 0) 
-					Array.Copy(data, 1, data, 0, data.Length - 1);
-				string? jsonString = Cbor.ToJson(data);
-				string beautyString = beautifier.Beautify(jsonString).Replace("\n", "\r\n").Replace(", ",", \r\n");
-				CBORbox.Text += beautyString + "\r\n";
-				Debug.WriteLine(beautyString);
-            } catch (Exception e) {
-				Debug.WriteLine(e.ToString());
-            }
-			CBORbox.Text += "\r\n";
-			return commandResponse;
+					if (data[0] == 0)
+						Array.Copy(data, 1, data, 0, data.Length - 1);
+					string? jsonString = Cbor.ToJson(data);
+					string beautyString = beautifier.Beautify(jsonString).Replace("\n", "\r\n").Replace(", ", ", \r\n");
+					CBORbox.Text += beautyString + "\r\n";
+					Debug.WriteLine(beautyString);
+				} catch (Exception e) {
+					Debug.WriteLine(e.ToString());
+				}
+				CBORbox.Text += "\r\n";
+				return commandResponse;
+			}
 		}
         
 		private void clearWindow_Click(object sender, EventArgs e)
@@ -89,17 +131,20 @@ namespace FidoReader
 
         private void selectFIDOApplet_Click(object sender, EventArgs e)
 		{
-			var selectingCommnad = new CommandApdu(IsoCase.Case4Short, pcscReader.ActiveProtocol)
+			Debug.WriteLine("Select FIDO Applet ... ");
+			var selectingCommnad = new CommandApdu(IsoCase.Case4Short, SCardProtocol.Any)
 			{
 				CLA = 0x00, INS = 0xA4, P1P2 = 0x0400, Data = new byte[] {0xa0, 0x00, 0x00, 0x06, 0x47, 0x2f, 0x00, 0x01}
 			};
+			
 			executecCommand(selectingCommnad);
+			Debug.WriteLine("FIDO Applet Selected.");
 		}
 
 		private void getInfo_click(object sender, EventArgs e)
 		{
             selectFIDOApplet_Click(sender, e);
-            var getInfoCommnad = new CommandApdu(IsoCase.Case4Short, pcscReader.ActiveProtocol) {
+            var getInfoCommnad = new CommandApdu(IsoCase.Case4Short, SCardProtocol.Any) {
 				CLA = 0x80,
 				INS = 0x10,
 				P1P2 = 0x0000,
@@ -111,7 +156,7 @@ namespace FidoReader
 
 		private void getAttestationPublicKey_Click(object sender, EventArgs e) {
 			selectFIDOApplet_Click(sender, e);
-			var getAttestationPublicKeyCommand = new CommandApdu(IsoCase.Case4Short, pcscReader.ActiveProtocol) {
+			var getAttestationPublicKeyCommand = new CommandApdu(IsoCase.Case4Short, SCardProtocol.Any) {
 				CLA = 0x80,
 				INS = 0x10,
 				P1P2 = 0x0000,
@@ -122,7 +167,7 @@ namespace FidoReader
 
         private void dumpIDSecret_Click(object sender, EventArgs e) {
 			selectFIDOApplet_Click(sender, e);
-			var dumpIDSecretCommand = new CommandApdu(IsoCase.Case4Extended, pcscReader.ActiveProtocol) {
+			var dumpIDSecretCommand = new CommandApdu(IsoCase.Case4Extended, SCardProtocol.Any) {
 				CLA = 0x80,
 				INS = 0x10,
 				P1P2 = 0x0000,
@@ -182,7 +227,7 @@ namespace FidoReader
 
         private void getPuKxRx_Click(object sender, EventArgs e) {
 			selectFIDOApplet_Click(sender, e);
-			var getPuKxRxCommand = new CommandApdu(IsoCase.Case4Short, pcscReader.ActiveProtocol) {
+			var getPuKxRxCommand = new CommandApdu(IsoCase.Case4Short, SCardProtocol.Any) {
 				CLA = 0x80,
 				INS = 0x10,
 				P1P2 = 0x0000,
@@ -199,10 +244,12 @@ namespace FidoReader
 
 
 		private void getPuKxCx_Click(object sender, EventArgs e) {
+			Debug.WriteLine("Set Identity IDx ...");
 			if (IDxBox.Text == "") {
 				MessageBox.Show("IDx not set");
 				return;
 			}
+			Debug.WriteLine("Mysql Connecting ...");
             #region mysql connecting
             string connectString = "server=127.0.0.1;port=3306;user id=IDP;password=idppasswd;database=idp;charset=utf8;";
 			MySqlConnection mySqlConnection = new MySqlConnection(connectString);
@@ -216,7 +263,9 @@ namespace FidoReader
                 }
 			}
             #endregion
+			Debug.WriteLine("Mysql Connected.");
 
+			
             selectFIDOApplet_Click(sender, e);
 
 			string IDx = IDxBox.Text;
@@ -245,7 +294,7 @@ namespace FidoReader
 			byte[] data = new byte[encodedCbor.Length+1];
 			data[0] = 0x52;
 			Array.Copy(encodedCbor, 0, data, 1, encodedCbor.Length);
-			var getPuKxCxCommand = new CommandApdu(IsoCase.Case4Short, pcscReader.ActiveProtocol) {
+			var getPuKxCxCommand = new CommandApdu(IsoCase.Case4Short, SCardProtocol.Any) {
 				CLA = 0x80,
 				INS = 0x10,
 				P1P2 = 0x0000,
@@ -344,14 +393,10 @@ namespace FidoReader
         protected override void OnFormClosing(FormClosingEventArgs e) {
             base.OnFormClosing(e);
 			Debug.WriteLine("Form Closing");
-			if(pcscContext != null)
-				pcscContext.Dispose();
-			if(pcscReader != null)
-				pcscReader.Dispose();
         }
 
         private void getFreeSpace_Click(object sender, EventArgs e) {
-			var getFreeSpaceCommand = new CommandApdu(IsoCase.Case2Short, pcscReader.ActiveProtocol) {
+			var getFreeSpaceCommand = new CommandApdu(IsoCase.Case2Short, SCardProtocol.Any) {
 				CLA = 0x80,
 				INS = 0xCA,
 				P1P2 = 0xFF21
@@ -361,7 +406,7 @@ namespace FidoReader
 
         private void getCredentialCount_Click(object sender, EventArgs e) {
 			selectFIDOApplet_Click(sender, e);
-			var command = new CommandApdu(IsoCase.Case4Short, pcscReader.ActiveProtocol) {
+			var command = new CommandApdu(IsoCase.Case4Short, SCardProtocol.Any) {
 				CLA = 0x80,
 				INS = 0x10,
 				P1P2 = 0x0000,
@@ -372,7 +417,7 @@ namespace FidoReader
 
         private void resetCredentials_Click(object sender, EventArgs e) {
 			selectFIDOApplet_Click(sender, e);
-			var command = new CommandApdu(IsoCase.Case4Short, pcscReader.ActiveProtocol) {
+			var command = new CommandApdu(IsoCase.Case4Short, SCardProtocol.Any) {
 				CLA = 0x80,
 				INS = 0x10,
 				P1P2 = 0x0000,
@@ -401,7 +446,7 @@ namespace FidoReader
 			Array.Copy(commandCbor, 0, commandData, 1, commandCbor.Length);
 			Debug.WriteLine(BitConverter.ToString(commandData).Replace("-", " "));
 
-            var command = new CommandApdu(IsoCase.Case4Short, pcscReader.ActiveProtocol) {
+            var command = new CommandApdu(IsoCase.Case4Short, SCardProtocol.Any) {
                 CLA = 0x80,
                 INS = 0x10,
                 P1P2 = 0x0000,
@@ -435,7 +480,7 @@ namespace FidoReader
 			Array.Copy(commandCbor, 0, commandData, 1, commandCbor.Length);
 			Debug.WriteLine("get key agreement command data : "+BitConverter.ToString(commandData).Replace("-", ""));
 
-			var command = new CommandApdu(IsoCase.Case4Short, pcscReader.ActiveProtocol) {
+			var command = new CommandApdu(IsoCase.Case4Short, SCardProtocol.Any) {
 				CLA = 0x80,
 				INS = 0x10,
 				P1P2 = 0x0000,
@@ -565,7 +610,7 @@ namespace FidoReader
             Array.Copy(commandCbor, 0, commandData, 1, commandCbor.Length);
             Debug.WriteLine("command Data : " + BitConverter.ToString(commandData).Replace("-",""));
 
-            var command = new CommandApdu(IsoCase.Case4Short, pcscReader.ActiveProtocol) {
+            var command = new CommandApdu(IsoCase.Case4Short, SCardProtocol.Any) {
                 CLA = 0x80,
                 INS = 0x10,
                 P1P2 = 0x0000,

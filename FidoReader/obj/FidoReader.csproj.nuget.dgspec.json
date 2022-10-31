@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\josh2\\Documents\\TWISC\\forward privacy\\FidoReader\\FidoReader\\FidoReader.csproj": {}
+    "C:\\Users\\josh2\\Documents\\GitLab\\EID\\FidoReader\\FidoReader\\FidoReader.csproj": {}
   },
   "projects": {
-    "C:\\Users\\josh2\\Documents\\TWISC\\forward privacy\\FidoReader\\FidoReader\\FidoReader.csproj": {
+    "C:\\Users\\josh2\\Documents\\GitLab\\EID\\FidoReader\\FidoReader\\FidoReader.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\josh2\\Documents\\TWISC\\forward privacy\\FidoReader\\FidoReader\\FidoReader.csproj",
+        "projectUniqueName": "C:\\Users\\josh2\\Documents\\GitLab\\EID\\FidoReader\\FidoReader\\FidoReader.csproj",
         "projectName": "FidoReader",
-        "projectPath": "C:\\Users\\josh2\\Documents\\TWISC\\forward privacy\\FidoReader\\FidoReader\\FidoReader.csproj",
+        "projectPath": "C:\\Users\\josh2\\Documents\\GitLab\\EID\\FidoReader\\FidoReader\\FidoReader.csproj",
         "packagesPath": "C:\\Users\\josh2\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\josh2\\Documents\\TWISC\\forward privacy\\FidoReader\\FidoReader\\obj\\",
+        "outputPath": "C:\\Users\\josh2\\Documents\\GitLab\\EID\\FidoReader\\FidoReader\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\josh2\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "C:\\Users\\josh2\\Documents\\TWISC\\forward privacy\\Simulation\\Simulation\\Simulation.csproj": {
-                "projectPath": "C:\\Users\\josh2\\Documents\\TWISC\\forward privacy\\Simulation\\Simulation\\Simulation.csproj"
+              "C:\\Users\\josh2\\Documents\\GitLab\\EID\\Simulation\\Simulation\\Simulation.csproj": {
+                "projectPath": "C:\\Users\\josh2\\Documents\\GitLab\\EID\\Simulation\\Simulation\\Simulation.csproj"
               }
             }
           }
@@ -107,14 +107,14 @@
         }
       }
     },
-    "C:\\Users\\josh2\\Documents\\TWISC\\forward privacy\\Simulation\\Simulation\\Simulation.csproj": {
+    "C:\\Users\\josh2\\Documents\\GitLab\\EID\\Simulation\\Simulation\\Simulation.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\josh2\\Documents\\TWISC\\forward privacy\\Simulation\\Simulation\\Simulation.csproj",
+        "projectUniqueName": "C:\\Users\\josh2\\Documents\\GitLab\\EID\\Simulation\\Simulation\\Simulation.csproj",
         "projectName": "Simulation",
-        "projectPath": "C:\\Users\\josh2\\Documents\\TWISC\\forward privacy\\Simulation\\Simulation\\Simulation.csproj",
+        "projectPath": "C:\\Users\\josh2\\Documents\\GitLab\\EID\\Simulation\\Simulation\\Simulation.csproj",
         "packagesPath": "C:\\Users\\josh2\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\josh2\\Documents\\TWISC\\forward privacy\\Simulation\\Simulation\\obj\\",
+        "outputPath": "C:\\Users\\josh2\\Documents\\GitLab\\EID\\Simulation\\Simulation\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\josh2\\AppData\\Roaming\\NuGet\\NuGet.Config",

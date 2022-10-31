@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DDMckub4Fgeei/Y4fl41Q8XaUezTPFT7Wjn0ILtZ1P8nkubH9FnGf0XoVeVjfz5cW4aEWjFrTVmyQV0jKdqrYQ==",
+  "dgSpecHash": "PY1GcZH8lZHPem3tl949PlgQJpTIJnXXGBkBiYcXiTV1W7C9X6vyqeu2eQV4C0dEv4plAW35qg/9l9nxNa5YCw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\josh2\\Documents\\TWISC\\forward privacy\\FidoReader\\FidoReader\\FidoReader.csproj",
+  "projectFilePath": "C:\\Users\\josh2\\Documents\\GitLab\\EID\\FidoReader\\FidoReader\\FidoReader.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\josh2\\.nuget\\packages\\bouncycastle\\1.8.9\\bouncycastle.1.8.9.nupkg.sha512",
     "C:\\Users\\josh2\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
