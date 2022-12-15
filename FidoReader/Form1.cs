@@ -352,7 +352,7 @@ namespace FidoReader
 			paramBox.Text += "Encrypted Cx : " + BitConverter.ToString(encryptedCx) + "\r\n";
 			paramBox.Text += "Decrypted Cx : " + BitConverter.ToString(decryptedCx) + "\r\n";
 
-			// generate HMAC <- AES(hashedSharedSecrect, sha256(IDx||Cx))
+			// generate HMAC <- AES(hashedSharedSecret, sha256(IDx||Cx))
 			byte[] IDxAndCx = new byte[IDx.Length + decryptedCx.Length];
 			Array.Copy(Encoding.ASCII.GetBytes(IDx), 0, IDxAndCx, 0, IDx.Length);
 			Array.Copy(decryptedCx, 0, IDxAndCx, IDx.Length, decryptedCx.Length);
